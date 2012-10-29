@@ -29,8 +29,8 @@ fi
 echo "-----> Installing dependencies"
 ./local/bin/cpanm --installdeps . 2>&1 | indent
 
-echo "-----> Installing Starman"
-./local/bin/cpanm Starman 2>&1 | indent
+echo "-----> Installing Twiggy"
+./local/bin/cpanm Twiggy 2>&1 | indent
 
 if [ -d $BUILD_DIR/local ]; then
   rm -rf $CACHE_DIR/local

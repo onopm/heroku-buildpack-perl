@@ -1,7 +1,8 @@
 Heroku buildpack: Perl
 ======================
 
-This is a Heroku buildpack that runs any PSGI based web applications using Starman.
+This is a Heroku buildpack that runs any PSGI based web applications using Twiggy.
+(original Starman)
 
 Usage
 -----
@@ -13,7 +14,7 @@ Example usage:
     app.psgi
     lib/
 
-    $ heroku create --stack cedar --buildpack http://github.com/miyagawa/heroku-buildpack-perl.git
+    $ heroku create --stack cedar --buildpack http://github.com/onopm/heroku-buildpack-perl.git
 
     $ git push heroku master
     ...
