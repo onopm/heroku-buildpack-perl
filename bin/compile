@@ -9,10 +9,8 @@ CACHE_DIR=$2
 
 PATH="$BUILD_DIR/local/bin:$PATH"
 
-export PERL_MB_OPT="--install_base $BUILD_DIR/local"
-export PERL_MM_OPT="INSTALL_BASE=$BUILD_DIR/local"
 export PERL5LIB="$BUILD_DIR/local/lib/perl5"
-export PERL_CPANM_OPT="--quiet --notest"
+export PERL_CPANM_OPT="--quiet --notest -l $BUILD_DIR/local"
 
 rm -rf $BUILD_DIR/local
 if [ -d $CACHE_DIR/local ]; then
@@ -27,10 +25,10 @@ if ! [ -e $BUILD_DIR/local/bin/cpanm ]; then
 fi
 
 echo "-----> Installing dependencies"
-./local/bin/cpanm --installdeps . 2>&1 | indent
+cpanm --installdeps . 2>&1 | indent
 
 echo "-----> Installing Twiggy"
-./local/bin/cpanm Twiggy 2>&1 | indent
+cpanm Twiggy 2>&1 | indent
 
 if [ -d $BUILD_DIR/local ]; then
   rm -rf $CACHE_DIR/local
